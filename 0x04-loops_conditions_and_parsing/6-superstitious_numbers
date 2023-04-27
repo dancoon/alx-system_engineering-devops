@@ -1,22 +1,20 @@
 #!/usr/bin/env bash
-# displays
-n=1
-while [ $n -le 20 ];
+# displays the numbers 1-20 with special cases based on Chinese myth
+
+count=1
+while [ $count -le 20 ]
 do
-	echo "$n"
-	case "$n" in
-
-		4)
-			echo "bad luck form China"
-			;;
-
-		9)
-			echo "bad luck from Japan"
-			;;
-
-		17)
-			echo "bad luck from Italy"
-			;;
-	esac
-	(( n++ ))
+echo "$count"
+case "$count" in
+    4)
+        echo "bad luck from China"
+        ;;
+    9)
+        echo "bad luck from Japan"
+        ;;
+    17)
+        echo "bad luck from Italy"
+        ;;
+    esac
+    ((count++))
 done
