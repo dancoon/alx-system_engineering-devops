@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#a bash scripts that displays listening ports
+sudo netstat -lp
