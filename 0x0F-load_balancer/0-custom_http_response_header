@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Conigures a server
+sudo apt update
+sudo apt install nginx
+sudo sed -ie "/server {$/a \\tadd_header X-Served-By \$hostname;" /etc/nginx/sites-available/default
+sudo service nginx restart
