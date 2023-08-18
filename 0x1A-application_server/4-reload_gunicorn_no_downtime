@@ -1,0 +1,10 @@
+#!/bin/bash
+# Stop old workers gracefully
+echo "Stopping old workers gracefully..."
+kill -HUP $(cat /home/ubuntu/venv/env/bin/gunicorn.pid)
+# Wait for a few seconds to allow old workers to finish processing
+sleep 10
+# Start new workers with updated code/configuration
+echo "Starting new workers..."
+/home/ubuntu/venv/env/bin/gunicorn --bind 0.0.0.0:5003 --workers=3 --error-logfile /tmp/airbnb-error.log --access-logfile /tmp/airbnb-access.log web_dynamic.2-hbnb:app
+echo "Gunicorn reload completed."
